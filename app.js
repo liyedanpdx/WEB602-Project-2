@@ -80,7 +80,6 @@ app.set('loginLimiter', loginLimiter);
 app.use(cookieParser());
 // 4. Session configuration (before passport)
 app.use(session({
-  
     secret: 'web602-project-2',
     resave: false,
     saveUninitialized: false,

@@ -1,6 +1,12 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
+const https = require('https');
+const fs = require('fs');
 
+const options = {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem')
+};
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -18,6 +24,7 @@ require('./models/Registration');
 require('./models/Blog');
 const app = require('./app');
 
-const server = app.listen(3000, () => {
-  console.log(`Express is running on port ${server.address().port}`);
+// 创建HTTPS服务器
+https.createServer(options, app).listen(5000, () => {
+  console.log('HTTPS server running on https://localhost:5000/');
 });
