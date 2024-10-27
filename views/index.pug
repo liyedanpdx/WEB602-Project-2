@@ -1,0 +1,57 @@
+doctype html
+head
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Sacramento&display=swap' rel='stylesheet')
+  link(rel='StyleSheet' href='css/styles.css' type='text/css')
+  link(rel="icon" href="images/tech-icon.ico" type="image/x-icon")
+  //- PWA
+  link(rel='manifest' href='manifest.json')
+  link(rel='apple-touch-icon' href='images/hello-icon-152.png')
+  meta(name='apple-mobile-web-app-capable' content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style' content='black')
+  meta(name='apple-mobile-web-app-title' content='Hello World')
+  meta(name='msapplication-TileImage' content='images/hello-icon-144.png')
+  meta(name='msapplication-TileColor' content='#FFFFFF')
+
+
+header
+  nav
+    ul
+      li
+        a(href='/home') Home
+      li   |
+      li
+        a(href='/blog')   Blog
+      if !user
+        li.register-link                                                                                  
+          a(href='/register') Register  
+        li   |   
+        li                                                                                
+          a(href='/login')   Login  
+      else
+        li.register-link
+          a(href='/logout')   Logout
+main
+  div.main_container
+    section#intro-text
+      h3
+        | Simple &amp; Powerful 
+        br
+        |             Edge Technique Sharing 
+      span Simple Coding  
+      p AI Automation, Javascript, Linux &amp; Security&mdash;need we share more?
+      //
+        <p class="success">SUCCESS</p>
+        <p class="error">ERROR</p>
+        <p class="warning">WARNING</p>
+      a.submit-button(href='/blog') View Knowledges
+    section#intro-image
+          img.slide.active(src='images/coding_image.jpg' alt='Coding image')
+          img.slide(src='images/coding_image2.jpg' alt='Coding image 2')
+          img.slide(src='images/coding_image3.jpg' alt='Coding image 3')
+footer
+  | &copy; Copyright 2024 
+
+//- 在body结束前添加所有脚本
+script(src='script.js')
+script(src='js/main.js')
